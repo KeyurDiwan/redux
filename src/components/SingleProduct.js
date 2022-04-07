@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import "../styles/SingleProduct.css";
 import Loading from "./Loading";
-import { FaHeart } from "react-icons/fa";
+
 
 const SingleProduct = () => {
   const [product, setProduct] = useState({});

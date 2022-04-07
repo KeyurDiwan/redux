@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IoBag } from "react-icons/io5";
 import { IoBookmark } from "react-icons/io5";
@@ -6,10 +6,7 @@ import "../styles/Navbar.css";
 
 const Navbar = () => {
   const { quantity } = useSelector((state) => state.cart);
-  let { quantityWishList, wishlistItems } = useSelector(
-    (state) => state.wishlist
-  );
-  const { pathname } = useLocation();
+  let { quantityWishList } = useSelector((state) => state.wishlist);
 
   console.log(quantityWishList);
 
@@ -22,6 +19,7 @@ const Navbar = () => {
               <img
                 className="logo"
                 src="http://www.userlogos.org/files/logos/ArkAngel06/Amazon.png"
+                alt="img not found"
               />
             </Link>
           </div>

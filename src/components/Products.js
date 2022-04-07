@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import Product from "./Product";
-import { useSelector } from "react-redux";
+
 
 import "../styles/Products.css";
 
@@ -15,7 +15,7 @@ const Products = () => {
       try {
         const { data } = await axios.get("https://fakestoreapi.com/products");
         setProducts(data);
-        console.log(data);
+        // console.log(data);
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);

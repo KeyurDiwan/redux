@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { removeFromWishList } from "../redux/reducers/wishlist";
-import { IoAddSharp, IoRemoveSharp } from "react-icons/io5";
+
 
 const WishListItem = (props) => {
   const dispatch = useDispatch();
-  const { image, title, price, quantity } = props;
+  const { image, title, price } = props;
 
   return (
     <div className="cart-item">
