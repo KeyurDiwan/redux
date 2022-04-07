@@ -22,7 +22,6 @@ const Product = ({ id, image, title, price }) => {
         <h3>₹{price}</h3>
       </div>
       <div className="buttons">
-      
         {cartItems.some((p) => p.id === id) ? (
           <button className="btn-sp"> ✅ Added to basket</button>
         ) : (
@@ -33,11 +32,6 @@ const Product = ({ id, image, title, price }) => {
             Add To basket
           </button>
         )}
-        {/* <button
-          onClick={() => dispatch(addToCart({ id, image, title, price }))}
-        >
-          Add to basket
-        </button> */}
       </div>
     </div>
   );
