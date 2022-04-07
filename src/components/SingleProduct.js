@@ -19,11 +19,7 @@ const SingleProduct = () => {
   const { quantityWishList, wishlistItems } = useSelector(
     (state) => state.wishlist
   );
-  const {  cartItems } = useSelector(
-    (state) => state.cart
-  );
-
-  // console.log(quantityWishList)
+  const { cartItems } = useSelector((state) => state.cart);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -57,27 +53,24 @@ const SingleProduct = () => {
         <p className="description">{description}</p>
         <p className="price">₹{price}</p>
         <div>
-          {/* <button onClick={() => dispatch(addToCart(product))}>
-            Add to cart
-          </button> */}
-
-
-
           {cartItems.some((p) => p.id === product.id) ? (
-            <button className = "btn-sp">  ✅ Added to Cart</button>
+            <button className="btn-sp"> ✅ Added to Cart</button>
           ) : (
-            <button className = "btn-sp" onClick={() => dispatch(addToCart(product))}>
+            <button
+              className="btn-sp"
+              onClick={() => dispatch(addToCart(product))}
+            >
               Add To Cart
             </button>
           )}
 
-
-
-
           {wishlistItems.some((p) => p.id === product.id) ? (
-            <button className = "btn-sp" >  ✅ Added to WishList</button>
+            <button className="btn-sp"> ✅ Added to WishList</button>
           ) : (
-            <button className = "btn-sp" onClick={() => dispatch(addToWishList(product))}>
+            <button
+              className="btn-sp"
+              onClick={() => dispatch(addToWishList(product))}
+            >
               Add To WishList
             </button>
           )}
