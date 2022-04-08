@@ -5,42 +5,38 @@ import { addToCart } from "../redux/reducers/cart";
 import { addToWishList } from "../redux/reducers/wishlist";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import "../styles/SingleProduct.css";
 import Loading from "./Loading";
-
+import girl from "../data/girl";
+import men from "../data/men";
+import mobile from "../data/mobile";
 
 const SingleProduct = () => {
-  const [product, setProduct] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const { id } = useParams();
   const dispatch = useDispatch();
+  const location = useLocation();
 
-  console.log("id", id);
   const { quantityWishList, wishlistItems } = useSelector(
     (state) => state.wishlist
   );
   const { cartItems } = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://fakestoreapi.com/products/${id}`
-        );
-        setProduct(data);
-        setIsLoading(false);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-    fetchProduct();
-  }, [id, quantityWishList]);
+  const id = location.state.id;
+  const title = location.state.title;
+  const image = location.state.image;
+  const description = location.state.description;
+  const category = location.state.category;
+  const price = location.state.price;
+  console.log(description);
 
-  const { title, price, description, category, image } = product;
-
-  if (isLoading) {
-    return <Loading />;
-  }
+  let product = {
+    id: id,
+    title: title,
+    price: price,
+    description: description,
+    category: category,
+    image: image,
+  };
 
   return (
     <div className="SingleProduct container">
@@ -50,7 +46,14 @@ const SingleProduct = () => {
       <div className="right-div">
         <h2 className="title">{title}</h2>
         <h3 className="category">{category}</h3>
-        <p className="description">{description}</p>
+        <p
+          className="description"
+          style={{
+            color: "black",
+          }}
+        >
+          {description}
+        </p>
         <p className="price">₹{price}</p>
         <div>
           {cartItems.some((p) => p.id === product.id) ? (

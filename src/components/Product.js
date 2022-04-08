@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducers/cart";
 import { useSelector } from "react-redux";
 
-const Product = ({ id, image, title, price }) => {
+
+
+const Product = ({ id, image, title, price, description }) => {
   const history = useNavigate();
   const dispatch = useDispatch();
 
@@ -13,7 +15,7 @@ const Product = ({ id, image, title, price }) => {
     <div className="product">
       <div
         className="image-container"
-        onClick={() => history(`/products/${id}`)}
+        onClick={() => history(`/products/${id}`, {state:{id,price,title, image, description}})}
       >
         <img src={image} alt={title} />
       </div>
