@@ -1,0 +1,32 @@
+
+  
+  /* html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    width: 100%;
+  } */
+
+  .main-section {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background: whitesmoke;
+  }
+  .card {
+    width: 350px;
+    height: 350px;
+    margin: 40px;
+  
+    /* border: 1px solid black; */
+    border-radius: 8px;
+  
+    box-sizing: border-box;
+  }
+  .card img {
+   
+    height:350px
+   
+  }
+  
